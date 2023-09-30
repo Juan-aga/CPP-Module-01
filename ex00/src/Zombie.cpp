@@ -4,6 +4,8 @@
 Zombie::Zombie( void )
 {
 	this->name = "";
+	if (DEBUG)
+		std::cerr << "Constructor Zombie called." << std::endl;
 }
 
 Zombie::~Zombie( void )
@@ -20,6 +22,8 @@ void	Zombie::announce( void )
 void	Zombie::setName( std::string name )
 {
 	this->name = name;
+	if (DEBUG)
+		std::cerr << "set name to: " << name << std::endl;
 }
 
 std::string	name;

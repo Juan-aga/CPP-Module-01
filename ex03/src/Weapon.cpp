@@ -1,8 +1,9 @@
 #include "Weapon.hpp"
 #include <iostream>
 
-Weapon::Weapon( std::string weapon ) : type(weapon)
+Weapon::Weapon( std::string weapon )
 {
+	this->type = weapon;
 	if (DEBUG)
 		std::cout << "Constructor Weapon with type: " << this->type << std::endl;
 }
@@ -13,18 +14,18 @@ Weapon::~Weapon( void )
 		std::cout << "Destructor Weapon called." << std::endl;
 }
 
-const std::string&	Weapon::getType( void )
+const std::string&	Weapon::getType( void ) const
 {
-	const std::string&	weaponREF = this->type;
-
-	return weaponREF;
+	return this->type;
 }
 
 void			Weapon::setType( std::string newType )
 {
 	if (DEBUG)
-		std::cout << "Change Weapon: " << this->type << " for: " << newType << std::endl;
+	{
+		std::cout << "Switched Weapon from " << this->type;
+		this->type = newType;
+		std::cout << " to " << this->type << std::endl;
+	}
 	this->type = newType;
 }
-
-std::string type;

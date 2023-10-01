@@ -6,11 +6,11 @@
 #    By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/01 00:39:38 by juan-aga          #+#    #+#              #
-#    Updated: 2023/10/01 10:02:20 by juan-aga         ###   ########.fr        #
+#    Updated: 2023/10/01 10:38:45 by juan-aga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	BraiiiiiiinnnzzzZ
+NAME		=	horde
 
 CC			=	c++
 
@@ -30,8 +30,7 @@ OBJ_DIR		=	obj/
 
 F_SRC		=	main.cpp		\
 				Zombie.cpp		\
-				newZombie.cpp	\
-				randomChump.cpp
+				zombieHorde.cpp
 
 SRC			=	${addprefix $(SRC_DIR), $(F_SRC)}
 

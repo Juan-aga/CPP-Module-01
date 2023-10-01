@@ -8,15 +8,18 @@ class Zombie
 
 public:
 
-	Zombie( std::string name );
+	Zombie( void );
 	~Zombie( void );
 
 	void	announce( void );
-//	void	setName( std::string name );
+	void	setName( std::string name );
 
 private:
 	std::string name;
+	int			_index;
 
+	static int	_numZ;
+	
 };
 
 #endif

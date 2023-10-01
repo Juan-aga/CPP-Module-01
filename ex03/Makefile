@@ -6,7 +6,7 @@
 #    By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/01 11:56:44 by juan-aga          #+#    #+#              #
-#    Updated: 2023/10/01 12:00:13 by juan-aga         ###   ########.fr        #
+#    Updated: 2023/10/01 20:02:23 by juan-aga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,10 @@ SRC_DIR		=	src/
 
 OBJ_DIR		=	obj/
 
-F_SRC		=	main.cpp		\
-				Weapon.cpp
+F_SRC		=	main.cpp	\
+				Weapon.cpp	\
+				HumanA.cpp	\
+				HumanB.cpp
 
 SRC			=	${addprefix $(SRC_DIR), $(F_SRC)}
 
@@ -37,7 +39,9 @@ OBJ			=	${patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.opp, $(SRC)}
 
 INCLUDES	=	-I./include/
 
-HEADERS		=	include/Weapon.hpp
+HEADERS		=	include/Weapon.hpp	\
+				include/HumanA.hpp	\
+				include/HumanB.hpp
 
 all:		${NAME}
 

@@ -6,7 +6,7 @@
 #    By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/01 00:39:38 by juan-aga          #+#    #+#              #
-#    Updated: 2023/10/01 00:43:31 by juan-aga         ###   ########.fr        #
+#    Updated: 2023/10/01 10:02:20 by juan-aga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,6 @@ clean:
 fclean:		clean
 			${RM} ${NAME}
 
-re:		fclean all
+re:			fclean all
 
-.PHONY:	all clean fclean re bonus
-
+.PHONY:		all clean fclean re bonus

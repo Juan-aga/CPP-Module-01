@@ -1,9 +1,8 @@
 #include "Zombie.hpp"
 #include <iostream>
 
-Zombie::Zombie( void )
+Zombie::Zombie( std::string name ) : name(name)
 {
-	this->name = "";
 	if (DEBUG)
 		std::cerr << "Constructor Zombie called." << std::endl;
 }
@@ -17,13 +16,6 @@ Zombie::~Zombie( void )
 void	Zombie::announce( void )
 {
 	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void	Zombie::setName( std::string name )
-{
-	this->name = name;
-	if (DEBUG)
-		std::cerr << "set name to: " << name << std::endl;
 }
 
 std::string	name;

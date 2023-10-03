@@ -6,7 +6,7 @@
 #    By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/01 00:39:38 by juan-aga          #+#    #+#              #
-#    Updated: 2023/10/01 10:02:20 by juan-aga         ###   ########.fr        #
+#    Updated: 2023/10/02 11:55:26 by juan-aga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,6 @@ NAME		=	BraiiiiiiinnnzzzZ
 CC			=	c++
 
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98 -D DEBUG=$(DEBUG) $(INCLUDES)
-
-ifdef DEBUG
-	DEBUG	=	1
-else
-	DEBUG	=	0
-endif
 
 RM			=	rm -rf
 
@@ -39,6 +33,20 @@ OBJ			=	${patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.opp, $(SRC)}
 
 INCLUDES	=	-I./include/
 
+ifdef DEBUG
+	DEBUG	=	1
+else
+	DEBUG	=	0
+endif
+
+UNAME_S		:= $(shell uname -s)
+
+ifeq ($(UNAME_S), Darwin)
+		LEAKS = @leaks -q -atExit -- ./${NAME}
+else
+		LEAKS = @echo "Can't use leaks in" ${UNAME_S}.
+endif
+
 all:		${NAME}
 
 ${NAME}:	$(HEADERS) ${OBJ}
@@ -51,6 +59,8 @@ $(OBJ_DIR)%.opp: $(SRC_DIR)%.cpp
 debug:
 			make re DEBUG=1
 
+leaks:		${NAME}
+			${LEAKS}
 clean: 
 			$(RM) $(OBJ_DIR)
 

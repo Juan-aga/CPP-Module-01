@@ -7,7 +7,10 @@ std::pair<std::ifstream*, std::ofstream*> checkArgs(int argc, char **argv)
 
 	std::ifstream*	infile = new std::ifstream(argv[1]);
 	if (!infile->is_open())
+	{
+		delete infile;
 		errorMsg(INFILE, std::string(""));
+	}
 
 	std::ofstream*	outfile = new std::ofstream((((std::string)argv[1] + ".replace").c_str()));
 	if (!outfile->is_open())

@@ -6,11 +6,11 @@
 #    By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/01 11:56:44 by juan-aga          #+#    #+#              #
-#    Updated: 2023/10/03 21:11:24 by juan-aga         ###   ########.fr        #
+#    Updated: 2023/10/04 12:18:23 by juan-aga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	searchAndReplaces
+NAME		=	searchAndReplace
 
 CC			=	c++
 
@@ -22,15 +22,18 @@ SRC_DIR		=	src/
 
 OBJ_DIR		=	obj/
 
-F_SRC		=	main.cpp
+F_SRC		=	main.cpp			\
+				check.cpp			\
+				error.cpp			\
+				searchAndReplace.cpp
 
 SRC			=	${addprefix $(SRC_DIR), $(F_SRC)}
 
 OBJ			=	${patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.opp, $(SRC)}
 
-INCLUDES	=	-I./include/
+INCLUDES	=	-I./inc/
 
-HEADERS		=	include/searchAndReplace.hpp
+HEADERS		=	inc/searchAndReplace.hpp
 
 ifdef DEBUG
 	DEBUG	=	1

@@ -6,7 +6,7 @@
 #    By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/01 11:56:44 by juan-aga          #+#    #+#              #
-#    Updated: 2023/10/04 12:18:23 by juan-aga         ###   ########.fr        #
+#    Updated: 2023/10/04 12:41:40 by juan-aga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,12 +41,16 @@ else
 	DEBUG	=	0
 endif
 
-UNAME_S		:= $(shell uname -s)
+UNAME_S		:=	$(shell uname -s)
 
 ifeq ($(UNAME_S), Darwin)
-		LEAKS = @leaks -q -atExit -- ./${NAME}
+		LEAKS =	@leaks -q -atExit -- ./${NAME}
 else
-		LEAKS = @echo "Can't use leaks in" ${UNAME_S}.
+		LEAKS =	@echo "Can't use leaks in" ${UNAME_S}.
+endif
+
+ifndef	ARG
+		ARG	=	""
 endif
 
 all:		${NAME}
@@ -62,7 +66,10 @@ debug:
 			make re DEBUG=1
 
 leaks:		${NAME}
-			${LEAKS}
+			${LEAKS} ${ARG}
+
+val:		${NAME}
+			@valgrind ./${NAME} ${ARG}
 
 clean: 
 			$(RM) $(OBJ_DIR)

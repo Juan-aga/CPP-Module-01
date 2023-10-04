@@ -3,6 +3,7 @@
 
 static const char * errorStr[ERROR_SIZE] = {
 	"Not valid arguments.",
+	"Search can't be empty.",
 	"Can't open infile ",
 	"Can't create or open outfile "
 };

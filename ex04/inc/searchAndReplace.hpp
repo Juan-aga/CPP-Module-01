@@ -8,6 +8,7 @@
 enum	ERROR
 {
 	ARG,
+	EMPTY,
 	INFILE,
 	OUTFILE,
 	ERROR_SIZE

@@ -4,7 +4,8 @@ std::pair<std::ifstream*, std::ofstream*> checkArgs(int argc, char **argv)
 {
 	if (argc != 4)
 		errorMsg(ARG, "");
-
+	if (!argv[2][0])
+		errorMsg(EMPTY, "");
 	std::ifstream*	infile = new std::ifstream(argv[1]);
 	if (!infile->is_open())
 	{

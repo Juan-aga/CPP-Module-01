@@ -7,22 +7,28 @@ class Harl
 {
 
 private:
-	enum	_LEVEL{
-		DEBUG,
+	enum	_LEVEL {
+		DEBUG_LEVEL,
 		INFO,
 		WARNING,
 		ERROR,
 		LEVEL_SIZE
 	};
-	const char * _levelStr[LEVEL_SIZE]; 
 
 	void		debug( void );
 	void		info( void );
 	void		warning( void );
 	void		error( void );
+	int			_hash(const std::string& key, int index) const;
 
-	typedef void (Harl::*_pointerFunctions)();
-	_pointerFunctions pointerFunction[LEVEL_SIZE];
+	typedef void	(Harl::*_functionPtr)();
+	typedef struct	s_lstFunc {
+		const char*		level;
+		_functionPtr	function;
+		int				key;
+	}	t_lstFunc;
+
+	t_lstFunc	functions[LEVEL_SIZE];
 	bool	_checkLevel( std::string level);
 
 public:

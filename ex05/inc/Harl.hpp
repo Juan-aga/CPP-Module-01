@@ -6,9 +6,15 @@
 class Harl
 {
 
+public:
+	Harl( void );
+	~Harl( void );
+
+	void	complain( std::string level );
+
 private:
 	enum	_LEVEL {
-		DEBUG_LEVEL,
+		DEBUG,
 		INFO,
 		WARNING,
 		ERROR,
@@ -29,15 +35,7 @@ private:
 	}	t_lstFunc;
 
 	t_lstFunc	functions[LEVEL_SIZE];
-	bool	_checkLevel( std::string level);
-
-public:
-	Harl( void );
-	~Harl( void );
-
-	void	complain( std::string level );
-
-
+//	bool	_checkLevel( std::string level);
 };
 
 #endif
